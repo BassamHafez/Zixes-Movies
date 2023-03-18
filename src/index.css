@@ -1,0 +1,886 @@
+
+body,html{
+    background-color:rgb(10, 10, 12);
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #DDDDDD;
+}
+a{
+    color: white !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+ul{
+    list-style: none;
+}
+.line{
+    background-color: #DC3545;
+    height: 0.3125rem;
+    width: 100%;
+}
+button{
+    background-color: transparent;
+}
+::-webkit-scrollbar{
+    width: 7px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background: #DC3545;
+    border-radius: 2px;
+}
+/* 
+_________________________________________________
+navbar
+
+*/
+.navbarr{
+    background-color:#15151570 !important;
+    z-index:3;
+}
+nav button{
+    background-color: transparent;
+}
+
+.logo{
+    width:6.25rem
+}
+
+nav ul li{
+    font-size: 1.25rem;
+    transition: all 1s;
+}
+.nav-link{
+    border: transparent 0.125rem solid;
+    font-weight: 700;
+    transition: all .3s;
+}
+.nav-link:hover{
+    color: #DC3545 !important;
+    border-bottom: #DC3545 solid 0.125rem;
+    border-top: #DC3545 solid 0.125rem;
+}
+
+nav ul li{
+    border: 0.0625rem transparent solid;
+}
+.log-out{
+    border: transparent 0.125rem solid;
+    font-weight: 900;
+    padding: 0.5rem;
+    transition: all .3s;
+    background-color: transparent;
+}
+.log-out:hover{
+    color: #DC3545 !important;
+    border-bottom: #DC3545 solid 0.125rem;
+    border-top: #DC3545 solid 0.125rem;
+}
+.profile{
+    padding: 0.3125rem 0.75rem;
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    transition: all .3s;
+    border: 1px solid transparent;
+
+}
+.profile:hover{
+    background-color: #835b5b;
+    border: 1px solid #835b5b;
+}
+
+/* 
+_________________________________________________
+controls
+
+*/
+.sorting-offcanvas-parent{
+    position: fixed;
+    top: 50%;
+    left:0;
+    transition: all 2s;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+.sorting-container{
+    width: fit-content;
+    height: fit-content;
+}
+.sorting-button-div{
+    width: 1.875rem;
+    height: 12.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem;
+}
+.sorting-button{
+    background-color: #1A1A1A;
+    padding: 0.625rem;
+    border: 0.0625rem solid #250307;
+}
+.sorting-button button i{
+    color:#DC3545;
+    font-size: 1.25rem;
+}
+.sorting-button button{ 
+    color:#DC3545;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.sorting-offcanvas{
+    background-image: url("../src/images/white-walker-g6f53411d8_1280.jpg");
+    background-size:cover;
+    width:12.5rem;
+    padding: 0.625rem;
+    border-radius: 0.3125rem;
+    position: relative;
+    height:12.5rem;
+    border: 1px solid #250307;
+    transition: all 2s;
+}
+.show-sorting-canvas{
+    transform: translate(-84%,-50%);
+}
+.sorting-offcanvas-layer{
+    position: absolute;
+    top:0;
+    right:0;
+    left: 0;
+    bottom:0;
+    background-color: rgba(0, 2, 10, 0.8);
+}
+.sorting-offcanvas ul li{
+    cursor: pointer;
+    padding:0.3125rem;
+    color: white;
+    transition: all .2s;
+}
+.sorting-offcanvas ul li .fa-solid{
+    color: #DC3545;
+    transition: all .2s;
+}
+.sorting-offcanvas ul li:hover{
+    background-color: #DC3545;
+    border-radius: 0.3125rem;
+    color: black;
+    opacity: .8;
+}
+.sorting-offcanvas ul li:hover .fa-solid{
+    color:white;
+}
+.title-type{
+    font-weight: 500;
+    color:#DC3545;
+}
+
+/* 
+_________________________________________________
+slider
+
+*/
+
+.slider-scroll{
+    padding:20px 0;
+    background-color:transparent;
+}
+
+/* 
+_________________________________________________
+Home
+
+*/
+.header{
+    background-image: url('./images/carousel bg 2.webp');
+    background-size: cover;
+    min-height: 100vh;
+}
+.home-card{
+    padding:0 20px;
+    cursor:grab;
+}
+.home-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    position: absolute;
+    bottom:0;
+    left:0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    background-color: rgba(7, 2, 27, 0.5);
+}
+
+.sec1-title{
+    color: #DC3545;
+    font-size: 3rem;
+    font-weight: 900;
+}
+.special-color{
+    color: #DDDDDD;
+}
+.download-img{
+    width: 12.5rem;
+    padding: 0.3125rem 0.3125rem;
+    transition: all 1s;
+}
+.download-img:hover .download-img{
+    transform: scale(1.1,1.1);
+    cursor: pointer;
+}
+.sec3 h2{
+    font-weight: 900 !important;
+    color: #DC3545;
+}
+.sec3-h3{
+    color: rgb(70, 63, 63);
+}   
+
+
+.page-item button{
+    background-color: #151515;
+    color: rgb(136, 131, 131);
+    border-color: #7c7b7b;
+}
+.page-item button:hover{
+    background-color: #DC3545;
+    border-color: #151515;
+    color: white;
+}
+.incre-and-dec-span{
+    color: rgb(136, 131, 131);
+}
+/* 
+_________________________________________________
+footer
+
+*/
+
+footer{
+    background-color: #151515;
+    height:9.375rem;
+    padding: 3.125rem 0;
+}
+footer h2{
+    color: #DC3545;
+    font-weight: 900 !important;
+}
+.footer-icons{
+    padding: 0.3125rem 0.625rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+}
+.footer-icons i{
+    color: rgb(136, 126, 126);
+    cursor: pointer;
+    transition: all .3s;
+}
+.fa-facebook:hover{
+    color: #355599;
+}
+.fa-twitter:hover{
+    color: #52A2F3;
+}
+.fa-youtube:hover{
+    color: red;
+}
+.fa-instagram:hover{
+    color:#DF2C9F;
+}
+.fa-tiktok:hover{
+    color: black;
+}
+
+/* _________________________________________________
+signup
+
+*/ 
+.signup-layer{
+    position: absolute;
+    top:20%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+form label{
+    color: rgb(160, 156, 156) !important;
+    font-weight: 900;
+}
+form{
+    background-color: transparent;
+    width: 50%;
+    border-radius: 0.625rem;
+    transition: all 1s;
+}
+.form-control{
+    background-color: transparent;
+    border:#0582ff  solid 0.0625rem;
+}
+.form-control:hover{
+    border: #194d81 solid 0.0625rem;
+}
+.submit-button{
+    background-color: #0582ff;
+    color: black;
+    padding:0.5rem;
+    border-radius: 0.3125rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border: #0582ff 0.0625rem solid;
+    transition: all .1s;
+}
+.submit-button:hover{
+    background-color: rgb(81, 145, 145);
+    color:  rgb(197, 183, 183);
+}
+.noterror-card{
+    border-radius: 0.1875rem;
+    background-image: url("./images/Dark Spiderman Glowing Eyes _ Spiderman pictures, Hd dark wallpapers, Marvel wallpaper hd.jpeg");
+    background-size:cover;
+    opacity: .5;
+}
+.form-title{
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+.blue-color{
+    color:#0582ff;
+}
+.error-card{
+    border-radius: 0.1875rem;
+    background-image: url("./images/Deadpool Wallpaper - Wallpaper Sun2.jpeg");
+    background-size: cover;
+    animation-name:errorMove;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    opacity: .5;
+}
+.error-list{
+    padding: 0.3125rem;
+}
+@keyframes errorMove {
+    0%{opacity:0;transform:translateX(100%);}
+    100%{opacity:.5;transform:translateX(0);}
+}
+.form-error input{
+    border-color: #DC3545;
+}
+.form-error button{
+    background-color: #DC3545;
+    border: none;
+}
+
+.ifram-trailer{
+    width:70%;
+    height:80%;
+}
+
+.btn-trailer{
+    position: absolute;
+    top: 15%;
+    right: 10%;
+}
+
+/* 
+_________________________________________________
+Log in
+*/
+
+.login-layer{
+    position: absolute;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+.noterror-card-login{
+    border-radius: 0.1875rem;
+    background-image: url("./images/iron man.jpeg");
+    background-size:cover;
+    opacity: .5;
+    min-height: 80vh;
+}
+.error-card-login{
+    border-radius: 0.1875rem;
+    animation-name:errorLogin;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    opacity: .7;
+    background-image: url("./images/download.jpeg");
+    background-size: cover;
+    height:70vh;
+}
+
+@keyframes errorLogin {
+    0%{opacity:0; transform: translateX(100%);}
+    100%{opacity:.7; transform: translateX(0);}
+}
+
+.login-error-layer{
+    height: 100%;
+}
+
+/* 
+_________________________________________________
+movie card
+*/
+
+.movie-card{
+    background-color:rgba(32, 31, 31, 0.5);
+    border-radius: 0.3125rem;
+    border: none;
+    position: relative;
+    box-shadow:-2px 2px 2px 2px rgb(5, 5, 5);
+}
+.movie-card:hover{
+    cursor: pointer;
+}
+.card-layer{
+    position: relative;
+    overflow: hidden;
+}
+.movie-card-layer{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity:0;
+    transition: all .5s;
+}
+.card-layer:hover .movie-card-layer{
+    opacity:.6;
+    animation-name: movieLayer;
+    animation-duration: .7s;
+    animation-direction: alternate;
+}
+@keyframes movieLayer {
+    0%{transform: translateY(100%);}
+    100%{transform: translateY(0);}
+}
+.movie-layer-icon{
+    border-radius: 50%;
+    padding: 0.625rem 0.9375rem;
+    border: 0.3125rem #DC3545 solid;
+    border-left: 0.3125rem #DC3545 dashed;
+}
+.movie-layer-icon:hover{
+    color: #DC3545;
+}
+
+.movie-title{
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    font-weight: 600;
+}
+.trailer-card{
+    text-align: center;
+    margin: auto;
+}
+.trial-icon{
+    cursor: pointer;
+    transition: all .3s;
+}
+.trailer-card:hover .trial-icon{
+    color: #DC3545;
+}
+
+.details-card{
+    margin: auto;
+    text-align: center;
+}
+
+
+.show-details-button{
+    width:80%;
+    background-color:#2C2C2C;
+    padding: 0.3125rem;
+    border-radius: 0.3125rem;
+    transition: all .3s;
+    border:none;
+}
+.fa-plus{
+    transition: all .3s;
+}
+.show-details-button:hover  .fa-plus{
+    color:#1A1A1A;
+}
+.show-details-button:hover{
+    background-color:#DC3545;
+}
+.show-trailer-button{
+    background-color: transparent;
+    border:none;
+    border-radius: 0.3125rem;
+    padding: 0.3125rem;
+    transition: all .3s;
+    width: 80%;
+}
+.show-trailer-button:hover{
+    background-color:#2C2C2C;
+}
+
+
+.movie-rate{
+    background-color: #1A1A1A;
+    width: 2.5rem;
+    height:3.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: .8;
+    transition: all .3;
+    font-weight: 600;
+}
+.movie-rate:hover{
+    opacity:1;
+    cursor: pointer;
+}
+.no-img{
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 23.75rem;
+}
+.no-img img{
+    width: 50%;
+}
+
+/* 
+_________________________________________________
+movie-details
+*/
+.Movie-details-card{
+    background-color: #1A1A1A;
+}
+.for-adault{
+    padding: 0.625rem;
+    background-color: #DC3545;
+    border-radius:50%;
+    font-size: 0.625rem;
+}
+.overview{
+    color: #918e8e;
+}
+.fa-calendar{
+    color: #918e8e;
+    cursor: pointer;
+}
+.modal-body{
+    background-color: rgb(10, 10, 12);
+}
+.btn-close{
+    background-color: #5e5e5e;
+}
+.no-details-img-div{
+    height: 100%;
+}
+.counter-vote{
+    padding:1.25rem;
+    text-align: center;
+    width:6.25rem;
+    height: 3.75rem;
+    border: 0.0625rem solid transparent;
+    border-bottom: 0.0625rem solid #7c7b7b;
+    
+    
+}
+.vote{
+    box-shadow: -0.3125rem 0.3125rem 0.3125rem black;
+    cursor:grab;
+    background-color: #121213;
+    transition: all .4s;
+}
+.vote:hover{
+    transform: scale(1.05,1.05);
+}
+
+.counter span{
+    color: #918e8e; 
+}
+.movie-details-title{
+    background-color: #121213;
+    border-radius: 0.625rem;
+    box-shadow: -0.125rem -0.125rem 0.3125rem  #DC3545;
+    padding:0.5rem
+}
+.movie-details-title:hover{
+    cursor: pointer;
+    box-shadow: -0.125rem -0.125rem 0.5rem  #DC3545;
+}
+.details-icons i{
+    font-size: 1.125rem;
+    color: #5f5d5d;
+    transition: all .2s;
+  
+}
+.details-icons i:hover{
+    font-size: 1.125rem;
+    color: #DC3545;
+    cursor: pointer;
+    transform: scale(1.03,1.03);
+}
+.details-image{
+    position: relative;
+
+}
+
+.details-image-layer{
+    background-color: black;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity:0;
+    transition: all .5s;
+}
+.details-image:hover .details-image-layer{
+    opacity:.7;
+    cursor: pointer;
+}
+.image-contain-details-icons{
+    border: 1px solid #272727;
+    border-top:1px solid transparent ;
+    border-right:1px solid transparent ;
+}
+/* 
+_________________________________________________
+offcanvas
+*/
+.offcanvas{
+    background-color: #242526;
+    border: white;
+    height: fit-content;
+    border-radius: 0.625rem;
+    padding: 0.625rem;
+}
+.offcanvas-header{
+    background-color: #121213;
+    border-radius: 0.625rem;
+    box-shadow: 0.3125rem 0.3125rem 0.3125rem 0.125rem black;
+}
+table{
+    margin-top: 1.25rem;
+}
+table td{
+    text-align: center;
+    padding: 0.3125rem;
+}
+table td i{
+    border-radius: 50%;
+    padding: 0.625rem 0.625rem;
+    background-color: #2C2C2C;
+    cursor: pointer;
+}
+table tr{
+    transition: all .3s;
+    border-radius: 0.625rem;
+}
+table tr:hover{
+    background-color: #5e5e5e;
+    cursor: pointer;
+}
+
+.fa-question,.fa-exclamation{
+    padding: 0.625rem 0.9375rem;
+}
+.profile-2{
+    background-color: #2C2C2C;
+    border-radius: 50%;
+    padding: 0.625rem 0.75rem;
+    transition: all .3s;
+}
+.profile-2:hover{
+    background-color: #918e8e;
+    cursor: pointer;
+}
+.fa-angle-right{
+    background-color: transparent;
+    border-radius:0;
+}
+/* 
+_________________________________________________
+error page
+
+*/
+.loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index:10;
+    background-color: black;
+}
+
+/* 
+_________________________________________________
+error page
+
+*/
+.movie-header{
+    background-image: url('./images/carousel bg 3.jpg');
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* 
+_________________________________________________
+error page
+
+*/
+.error-title{
+    color: #DC3545;
+    font-weight: 900;
+    font-size: 2.8125rem;
+}
+
+/* 
+_________________________________________________
+media query
+
+*/
+
+@media screen and (max-width:768px){
+body,html{
+    font-size: 12px;
+    overflow-x: hidden;
+}
+h1{
+    font-size: 18px;
+}
+form{
+    width:80%
+}
+.signup-layer,.login-layer{
+    top:0;
+}
+.card-img-top{
+    width:100%;
+}
+.log-in-row,.sign-up-row{
+    flex-direction: column-reverse !important;
+}
+form{
+    padding:0 !important;
+}
+.form-floating{
+    padding:0 !important;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
+}
+.login-layer,.signup-layer{
+    padding:0 !important;
+}
+.error-card-login{
+    justify-content: center !important;
+    align-items:center !important;
+    margin-top: 50% !important;
+    padding-top: 20px !important;
+    display: flex;
+    align-items: center;
+    height: 50vh;
+}
+.error-card{
+    padding: 5px !important;
+    margin-top: 300px !important;
+    padding-top: 50px !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+}
+.noterror-card-login{
+    margin-top: 30%;
+    min-height: 50vh;
+}
+
+.noterror-card{
+    margin-top: 400px !important;
+    min-height: 50vh;
+}
+.search-form{
+    padding: 0 !important;
+}
+}
+
+@media screen and (max-height:500px){
+    .modal-details-body { 
+     padding-top: 50px;
+    }
+    .details-image-side{
+        margin-top: 50px;
+    }
+    .details-image img{
+        padding-top: 50px;
+        margin-top: 50px;
+    }
+    .login-layer,.signup-layer{
+        padding:0 !important;
+    }
+    .error-card-login{
+        justify-content: center !important;
+        align-items:center !important;
+        margin-top: 50% !important;
+        padding-top: 20px !important;
+        background-image: url("./images/download.jpeg");
+        background-size: cover;
+        height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+    .error-card{
+        padding: 5px !important;
+        margin-top: 600px !important;
+        padding-top: 50px !important;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        width: 50%;
+        margin: auto;
+    }
+    .noterror-card-login{
+        margin-top: 400px !important;
+        height: 100vh;
+        width: 50%;
+        margin: auto;
+    }
+    
+    .noterror-card{
+        margin-top: 600px !important;
+        height: 80vh;
+        width:50%;
+        margin: auto;
+    }
+}
