@@ -1,7 +1,6 @@
 import React,{ useContext, useEffect } from 'react'
-import boy from '../../images/boy for error 404.jpg'
 import NavContext from "../../NavContext";
-
+import errorImg from '../../images/boy_for_error_4042.png'
 
 
 export default function Nopage() {
@@ -24,7 +23,7 @@ export default function Nopage() {
             </div>
           </div>
           <div className='col-md-6'>
-            <img src={boy} alt="error 404" />
+            <img src={errorImg} alt="error 404" />
           </div>
         </div>
      </div>

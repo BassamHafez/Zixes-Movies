@@ -198,6 +198,11 @@ _________________________________________________
 Home
 
 */
+.home-no-login{
+    background-color: black;
+    width: 100% !important;
+    height: 100% !important;
+}
 .header{
     background-image: url('./images/carousel bg 2.webp');
     background-size: cover;

@@ -19,7 +19,7 @@ export function NavContextProvider(props) {
     let[userInformation,setUserInformation]=useState({});
     let[loading,setLoading]=useState(false);
     let [showing,setShowing]=useState();
-
+    
 
     function changeNavbar(x){
             if(x===true){

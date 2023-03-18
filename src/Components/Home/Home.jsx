@@ -114,7 +114,7 @@ export default function Home() {
       ) : (
         // without login--------------------------------------------------------
 
-        <>
+        <div className="home-no-login">
           <section className="container-fluid  p-5 sec1">
             <div className="row">
               <div className=" col-md-6 ">
@@ -176,7 +176,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="sec3 pt-5 my-5">
+          <section className="sec3 pt-5">
             <div className="text-center">
               <h2 className="sec1-title">Watch the way you want</h2>
               <h3 className="special-color">
@@ -187,7 +187,7 @@ export default function Home() {
               <img className="w-100" src={sec3} alt="watch the way you want" />
             </div>
           </section>
-        </>
+        </div>
       )}
 
       <OffcanvasSlide />
