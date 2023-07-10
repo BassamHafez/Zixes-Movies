@@ -31,10 +31,10 @@ export default function Nav() {
                 <NavLink className="nav-link active" aria-current="page" to="/Zixes-Movie/">Home</NavLink>
               </li>
               <li className="nav-item px-3">
-                <NavLink  className="nav-link " aria-current="page" to="/Zixes-Movie/Movies">Movies</NavLink>
+                <NavLink  className="nav-link " aria-current="page" to="/Zixes-Movie//Movies">Movies</NavLink>
               </li>
               <li className="nav-item px-3">
-                <NavLink className="nav-link " aria-current="page" to="/Zixes-Movie/Tv">Tv show</NavLink>
+                <NavLink className="nav-link " aria-current="page" to="/Zixes-Movie//Tv">Tv show</NavLink>
               </li>
             </ul>
             //No log in ---------------------------------------------------------------
@@ -47,8 +47,8 @@ export default function Nav() {
             </ul>
              //No log in ---------------------------------------------------------------
             :<ul className='navbar-nav ms-auto mb-2 mb-lg-0 px-5'>
-            <li ><NavLink className="nav-link mx-2" to='/Zixes-Movie/login'>Log in</NavLink></li> 
-            <li><NavLink className="nav-link  mx-2" to='/Zixes-Movie/Signup'>sign up</NavLink></li>
+            <li ><NavLink className="nav-link mx-2" to='/Zixes-Movie//login'>Log in</NavLink></li> 
+            <li><NavLink className="nav-link  mx-2" to='/Zixes-Movie//Signup'>sign up</NavLink></li>
         </ul>}
           </div>
         </div>
