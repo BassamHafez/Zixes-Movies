@@ -28,7 +28,7 @@ export default function Nav() {
           // log in done---------------------------------------------------------------
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">  
               <li className="nav-item px-3">
-                <NavLink className="nav-link active" aria-current="page" to="/Home">Home</NavLink>
+                <NavLink className="nav-link active" aria-current="page" to="/Zixes-Movie/">Home</NavLink>
               </li>
               <li className="nav-item px-3">
                 <NavLink  className="nav-link " aria-current="page" to="/Movies">Movies</NavLink>

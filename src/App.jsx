@@ -21,11 +21,11 @@ export default function App() {
             <Routes>
                 <Route path='/Movies' element={<ProtectedRout val={'/Movies'}/>} />
                 <Route path='/Tv' element={<ProtectedRout val={'/Tv'}/>} />
-                <Route path='/Home' element={<Home/>}/>
+                <Route path='/Zixes-Movie/' element={<Home/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/Signup' element={<Signup/>}/>
-                <Route path='/' element={<Navigate to='/Home'/>}/>
-                <Route path='/Zixes-Movie' element={<Navigate to='/Home'/>}/>
+                <Route path='/' element={<Navigate to='/Zixes-Movie/'/>}/>
+                {/* <Route path='/Zixes-Movie/' element={<Navigate to='/Home'/>}/> */}
                 <Route path='*' element={<Nopage/>}/>
               </Routes>
             <Footer/>
