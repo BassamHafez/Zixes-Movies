@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Zixes-Movie/static/css/main.e0bcd6c6.css",
-    "main.js": "/Zixes-Movie/static/js/main.640dd3c5.js",
+    "main.js": "/Zixes-Movie/static/js/main.8c7398bb.js",
     "static/media/sec3 img.webp": "/Zixes-Movie/static/media/sec3 img.3f54ae04a022ad39c612.webp",
     "static/media/fa-solid-900.ttf": "/Zixes-Movie/static/media/fa-solid-900.2877d54f94f30c5d563c.ttf",
     "static/media/carousel bg 2.webp": "/Zixes-Movie/static/media/carousel bg 2.37c0d33d065a2ae75f1d.webp",
@@ -28,10 +28,10 @@
     "static/media/fa-v4compatibility.woff2": "/Zixes-Movie/static/media/fa-v4compatibility.497d535001197a9c5b38.woff2",
     "index.html": "/Zixes-Movie/index.html",
     "main.e0bcd6c6.css.map": "/Zixes-Movie/static/css/main.e0bcd6c6.css.map",
-    "main.640dd3c5.js.map": "/Zixes-Movie/static/js/main.640dd3c5.js.map"
+    "main.8c7398bb.js.map": "/Zixes-Movie/static/js/main.8c7398bb.js.map"
   },
   "entrypoints": [
     "static/css/main.e0bcd6c6.css",
-    "static/js/main.640dd3c5.js"
+    "static/js/main.8c7398bb.js"
   ]
 }
