@@ -25,7 +25,7 @@ export default function App() {
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/Signup' element={<Signup/>}/>
                 <Route path='/' element={<Navigate to='/Home'/>}/>
-                <Route path='/Zixes-Movie/' element={<Navigate to='/Home'/>}/>
+                <Route path='/Zixes-Movie' element={<Navigate to='/Home'/>}/>
                 <Route path='*' element={<Nopage/>}/>
               </Routes>
             <Footer/>
