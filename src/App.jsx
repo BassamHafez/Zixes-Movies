@@ -19,11 +19,11 @@ export default function App() {
        <BrowserRouter>
             <Nav/>
             <Routes>
-                <Route path='/Movies' element={<ProtectedRout val={'/Movies'}/>} />
-                <Route path='/Tv' element={<ProtectedRout val={'/Tv'}/>} />
+                <Route path='/Zixes-Movie/Movies' element={<ProtectedRout val={'/Zixes-Movie/Movies'}/>} />
+                <Route path='/Zixes-Movie/Tv' element={<ProtectedRout val={'/Zixes-Movie/Tv'}/>} />
                 <Route path='/Zixes-Movie/' element={<Home/>}/>
-                <Route path='/login' element={<Login/>}/>
-                <Route path='/Signup' element={<Signup/>}/>
+                <Route path='/Zixes-Movie/login' element={<Login/>}/>
+                <Route path='/Zixes-Movie/Signup' element={<Signup/>}/>
                 <Route path='/' element={<Navigate to='/Zixes-Movie/'/>}/>
                 {/* <Route path='/Zixes-Movie/' element={<Navigate to='/Home'/>}/> */}
                 <Route path='*' element={<Nopage/>}/>
