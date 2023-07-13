@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/Zixes-Movie/static/css/main.e0bcd6c6.css",
-    "main.js": "/Zixes-Movie/static/js/main.09aae2e0.js",
+    "main.css": "/Zixes-Movie/static/css/main.585105a6.css",
+    "main.js": "/Zixes-Movie/static/js/main.4048f1d0.js",
+    "static/media/Spiromaniac.gif": "/Zixes-Movie/static/media/Spiromaniac.08410b87cc27ed733878.gif",
     "static/media/sec3 img.webp": "/Zixes-Movie/static/media/sec3 img.3f54ae04a022ad39c612.webp",
     "static/media/fa-solid-900.ttf": "/Zixes-Movie/static/media/fa-solid-900.2877d54f94f30c5d563c.ttf",
     "static/media/carousel bg 2.webp": "/Zixes-Movie/static/media/carousel bg 2.37c0d33d065a2ae75f1d.webp",
@@ -9,7 +10,6 @@
     "static/media/Game of Thrones - Season I.jpeg": "/Zixes-Movie/static/media/Game of Thrones - Season I.861ed97ca770b1aef003.jpeg",
     "static/media/carousel bg 3.jpg": "/Zixes-Movie/static/media/carousel bg 3.a82cb51802398c20442c.jpg",
     "static/media/fa-brands-400.ttf": "/Zixes-Movie/static/media/fa-brands-400.13e40630e5866f777de8.ttf",
-    "static/media/white-walker-g6f53411d8_1280.jpg": "/Zixes-Movie/static/media/white-walker-g6f53411d8_1280.92bf50582647ad406895.jpg",
     "static/media/fa-solid-900.woff2": "/Zixes-Movie/static/media/fa-solid-900.bdb9e23299f9d1320a8b.woff2",
     "static/media/boy_for_error_4042.png": "/Zixes-Movie/static/media/boy_for_error_4042.01341611cca91b9c44a0.png",
     "static/media/fa-brands-400.woff2": "/Zixes-Movie/static/media/fa-brands-400.7be2266f1be21c44ecd4.woff2",
@@ -26,12 +26,16 @@
     "static/media/fa-v4compatibility.ttf": "/Zixes-Movie/static/media/fa-v4compatibility.6c0a7b774ffa1cf0a059.ttf",
     "static/media/logo.webp": "/Zixes-Movie/static/media/logo.fef6101d93f6e6371e2d.webp",
     "static/media/fa-v4compatibility.woff2": "/Zixes-Movie/static/media/fa-v4compatibility.497d535001197a9c5b38.woff2",
+    "static/media/slick.svg": "/Zixes-Movie/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Zixes-Movie/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Zixes-Movie/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/Zixes-Movie/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Zixes-Movie/index.html",
-    "main.e0bcd6c6.css.map": "/Zixes-Movie/static/css/main.e0bcd6c6.css.map",
-    "main.09aae2e0.js.map": "/Zixes-Movie/static/js/main.09aae2e0.js.map"
+    "main.585105a6.css.map": "/Zixes-Movie/static/css/main.585105a6.css.map",
+    "main.4048f1d0.js.map": "/Zixes-Movie/static/js/main.4048f1d0.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0bcd6c6.css",
-    "static/js/main.09aae2e0.js"
+    "static/css/main.585105a6.css",
+    "static/js/main.4048f1d0.js"
   ]
 }
