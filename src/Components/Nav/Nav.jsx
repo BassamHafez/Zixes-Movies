@@ -9,16 +9,15 @@ export default function Nav() {
   let Navigate=useNavigate();
 
   function navigateToHome(){
-    Navigate('/Home');
+    Navigate('/Zixes-Movie/');
     logOut();
   }
 
   return (
     <>
-       
         <nav className={changeNav===true?'fixed-top navbarr navbar navbar-expand-lg bg-body-tertiary navbar-dark':'navbarr navbar navbar-expand-lg bg-body-tertiary navbar-dark'}>
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/Home"><img className='logo' src={logo} alt="logo" /></NavLink>
+          <NavLink className="navbar-brand" to="/Zixes-Movie/"><img className='logo' src={logo} alt="logo" /></NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -31,10 +30,10 @@ export default function Nav() {
                 <NavLink className="nav-link active" aria-current="page" to="/Zixes-Movie/">Home</NavLink>
               </li>
               <li className="nav-item px-3">
-                <NavLink  className="nav-link " aria-current="page" to="/Zixes-Movie//Movies">Movies</NavLink>
+                <NavLink  className="nav-link " aria-current="page" to="/Movies">Movies</NavLink>
               </li>
               <li className="nav-item px-3">
-                <NavLink className="nav-link " aria-current="page" to="/Zixes-Movie//Tv">Tv show</NavLink>
+                <NavLink className="nav-link " aria-current="page" to="/Tv">Tv show</NavLink>
               </li>
             </ul>
             //No log in ---------------------------------------------------------------
@@ -47,8 +46,8 @@ export default function Nav() {
             </ul>
              //No log in ---------------------------------------------------------------
             :<ul className='navbar-nav ms-auto mb-2 mb-lg-0 px-5'>
-            <li ><NavLink className="nav-link mx-2" to='/Zixes-Movie//login'>Log in</NavLink></li> 
-            <li><NavLink className="nav-link  mx-2" to='/Zixes-Movie//Signup'>sign up</NavLink></li>
+            <li ><NavLink className="nav-link mx-2" to='/Login'>Log in</NavLink></li> 
+            <li><NavLink className="nav-link  mx-2" to='/Signup'>sign up</NavLink></li>
         </ul>}
           </div>
         </div>

@@ -1,3 +1,7 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
 
 body,html{
     background-color:rgb(10, 10, 12);
@@ -122,10 +126,11 @@ controls
     padding: 1.25rem;
 }
 .sorting-button{
-    background-color: #1A1A1A;
+    background-color: #1a1a1a83;
     padding: 0.625rem;
-    border: 0.0625rem solid #250307;
+    border-radius: 0 20px 20px 0;
 }
+
 .sorting-button button i{
     color:#DC3545;
     font-size: 1.25rem;
@@ -137,14 +142,11 @@ controls
 }
 
 .sorting-offcanvas{
-    background-image: url("../src/images/white-walker-g6f53411d8_1280.jpg");
-    background-size:cover;
+    background-color: #1a1a1a83;
     width:12.5rem;
     padding: 0.625rem;
-    border-radius: 0.3125rem;
     position: relative;
     height:12.5rem;
-    border: 1px solid #250307;
     transition: all 2s;
 }
 .show-sorting-canvas{
@@ -208,9 +210,85 @@ Home
     background-size: cover;
     min-height: 100vh;
 }
+.slider-parent{
+    height: 120vh !important;
+    text-align: center;
+    margin-top: 3rem;
+    padding: 3rem;
+}
 .home-card{
-    padding:0 20px;
-    cursor:grab;
+    width: 80% !important;
+    height: 100%  !important;
+    transition: all 2s;
+    position: relative;
+}
+
+.home-card img{
+    width: 100% !important;
+    height: 100% !important;
+    margin: auto;
+    border: 0.125rem solid #6d050f;
+    border-radius: 0.625rem;
+    transition: all 2s;
+}
+
+
+.slick-active .home-card{
+    transform: scale(.4);
+}
+.slick-active .home-card img{
+    box-shadow: 1.875rem -2.5rem 0.625rem rgba(0, 0, 0, 0.3);
+}
+.slick-current {
+    overflow: visible;
+ }
+.slick-current .home-card{
+    transform: scale(1);
+    padding-top:2.5rem;
+}
+.slick-current .home-card img{
+    box-shadow: -1.875rem -2.5rem 0.625rem rgba(107, 5, 5, 0.8);
+}
+
+.slick-current:hover img{
+    box-shadow: 0 0 0.625rem rgba(107, 5, 5, 0.8);
+    cursor: pointer;
+    border: 0.125rem solid black;
+}
+.home-card-layout{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity:0;
+    padding: 0 5px;
+}
+.home-card:hover .home-card-layout{
+    opacity:1;
+    width: 100% !important;
+    height: 92.5% !important;
+    margin: auto;
+    border-radius: 0.625rem;
+ 
+}
+.home-card-layout h4{
+    padding: 20px;
+    background-color: #69030d77;
+    border-radius: 30px 0 30px 0;
+}
+.home-card-layout p{
+    color: rgba(240,240,240,.7);
+    font-size: 12px;
+}
+
+.slick-title{
+    font-family:cursive;
+    font-weight: 900;
+    font-size: 2.5rem;
 }
 .home-footer{
     display: flex;
@@ -272,13 +350,33 @@ footer
 */
 
 footer{
-    background-color: #151515;
-    height:9.375rem;
-    padding: 3.125rem 0;
+    background-color: rgb(17, 17, 17);
+    padding:0.625rem 0;
+    min-height:30vh;
+    padding: 0.625rem;
 }
-footer h2{
+.footer-logo{
+    width: 9.375rem;
+}
+.footer-logo-div{
+    width: 100%;
+    align-items:start;
+}
+footer h5{
     color: #DC3545;
     font-weight: 900 !important;
+    font-family:Arial, Helvetica, sans-serif;
+    border: 0.0625rem solid transparent;
+    border-right: 0.0625rem solid gray;
+    margin:0.3125rem;
+    text-align: center;
+    transition: all .5s;
+}
+footer h5:hover{
+    border: 0.0625rem solid gray;
+    box-shadow: 0 0.125rem 0.625rem #DC3545;
+    cursor: pointer;
+    border-radius: 0.625rem;
 }
 .footer-icons{
     padding: 0.3125rem 0.625rem;
@@ -289,9 +387,9 @@ footer h2{
     margin: auto;
 }
 .footer-icons i{
-    color: rgb(136, 126, 126);
+    color: rgb(228, 215, 215);
     cursor: pointer;
-    transition: all .3s;
+    transition: all .5s;
 }
 .fa-facebook:hover{
     color: #355599;
@@ -308,7 +406,15 @@ footer h2{
 .fa-tiktok:hover{
     color: black;
 }
-
+.rights-div {
+ display: flex;
+ align-items: end;
+}
+footer p{
+    color: rgb(136, 131, 131);
+    font-size: 0.875rem;
+    text-align: center;
+}
 /* _________________________________________________
 signup
 
@@ -727,12 +833,15 @@ table tr:hover{
     transition: all .3s;
 }
 .profile-2:hover{
-    background-color: #918e8e;
+    background-color: #dc354662;
     cursor: pointer;
 }
 .fa-angle-right{
     background-color: transparent;
     border-radius:0;
+}
+.profile:hover{
+    background-color: #dc354662;
 }
 /* 
 _________________________________________________
@@ -838,6 +947,10 @@ form{
 .search-form{
     padding: 0 !important;
 }
+footer h5{
+    margin-bottom:10px;
+}
+
 }
 
 @media screen and (max-height:500px){

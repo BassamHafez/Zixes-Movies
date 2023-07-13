@@ -84,12 +84,16 @@ export function NavContextProvider(props) {
     }
     
     async function getTrendingMedia(mediaType, callback) {
+        preventScroll(true);
+        changeLoadingState(true);
         let { data } = await axios.get(`${process.env.REACT_APP_MOVIE_URL}/trending/${mediaType}/week`,{
             params:{
                 api_key: process.env.REACT_APP_Movie_Key,
             }
         });
         callback(data.results);
+        preventScroll(false);
+        changeLoadingState(false);
     }
 
 

@@ -3,23 +3,38 @@ import ParticlesBackground from "../Particels/ParticlesBackground";
 import NavContext from "../../NavContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 export default function Login() {
-  let { changeNavbar, changeFooter, changeParticleColor }=useContext(NavContext);
+  let { changeNavbar, changeFooter, changeParticleColor,loading,preventScroll,changeLoadingState }=useContext(NavContext);
   let [user, setUser] = useState({
     email: "",
     password: "",
   });
 
   let [error, setError] = useState('');
-  let [loading, setLoading] = useState(false);
+  let [onload, setOnLoad] = useState(false);
   let [errorList, setErrorList] = useState([]);
   let Navigate = useNavigate();
+
+
+  function setLoad() {
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
+      preventScroll(false);
+      changeLoadingState(false);
+    }
+  }
+
 
   useEffect(() => {
     changeNavbar(true);
     changeFooter(true);
     changeParticleColor(false);
+    changeLoadingState(true);
+    setLoad();
   }, []);
 
   function getUserData(e) {
@@ -44,35 +59,36 @@ export default function Login() {
 
   async function hasFormSubmit(e) {
     e.preventDefault();
-    setLoading(true);
+    setOnLoad(true);
     let response = validation();
     setError("");
     setErrorList([]);
 
     if (response.error) {
-      setLoading(false);
+      setOnLoad(false);
       changeParticleColor(true);
       setErrorList(response.error.details);
     } else {
 
-      let { data } = await axios.post("https://sticky-note-fe.vercel.app/signin",user);
+      let { data } = await axios.post("https://movies-api.routemisr.com/signin",user);
 
       if (data.message === "success") {
         changeParticleColor(false);
         setError("");
-        setLoading(false);
+        setOnLoad(false);
         localStorage.setItem('UserToken',data.token);
-        Navigate("/Home");
+        Navigate("/Zixes-Movie/");
       } else {
         setError(data.message.slice(data.message.indexOf(",") + 1));
         changeParticleColor(true);
-        setLoading(false);
+        setOnLoad(false);
       }
     }
   }
 
   return (
     <>
+    {loading === true ? <LoadingScreen /> : ""}
       <ParticlesBackground />
       {errorList.length>0||error?
     // error case---------------------------------------------------------
@@ -91,7 +107,7 @@ export default function Login() {
           <label htmlFor='floatingPass'>Password</label>
         </div>
         <div className='w-100 m-auto d-flex justify-content-center'>
-            <button className='submit-button w-50 ' type='submit'>{loading===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Log in"}</button>
+            <button className='submit-button w-50 ' type='submit'>{onload===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Log in"}</button>
         </div> 
     </form>
 
@@ -121,7 +137,7 @@ export default function Login() {
           <label htmlFor='floatingPass'>Password</label>
         </div>
         <div className='w-100 m-auto d-flex justify-content-center'>
-            <button className='submit-button w-50 ' type='submit'>{loading===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Log in"}</button>
+            <button className='submit-button w-50 ' type='submit'>{onload===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Log in"}</button>
         </div>
     </form>
 

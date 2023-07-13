@@ -10,6 +10,7 @@ import OffcanvasSlide from "./../OffcanvasSlide/OffcanvasSlide";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import { Helmet } from "react-helmet";
 import Slider from "../Slider/Slider";
+import MoviesVote from "../MoviesVote/MoviesVote";
 
 export default function Home() {
   let {
@@ -25,7 +26,11 @@ export default function Home() {
     userInfo,
   } = useContext(NavContext);
   let imgPrefix = "https://image.tmdb.org/t/p/w500";
-  console.log(trendingMovies);
+
+
+
+
+
   function setLoad() {
     if (
       document.readyState === "complete" ||
@@ -47,15 +52,17 @@ export default function Home() {
 
   useEffect(() => {
     getUserInfo();
+    console.log(trendingMovies)
+    console.log(trendingPeople)
   }, [userInfo]);
-
+  
   return (
     <>
       <Helmet>
         <title>Zixes | Home</title>
       </Helmet>
-
       {loading === true ? <LoadingScreen /> : ""}
+
       <header>
         <div className="header text-center">
           <div className="home-footer">
@@ -68,16 +75,20 @@ export default function Home() {
       {userInfo !== null ? (
         // with login--------------------------------------------------------
         <>
-        <div className="my-5">
-          <h2 className="title-type">Trending Movies</h2>
+
+        <div className=" slider-parent my-5">
+          <h2 className="title-type mb-5 slick-title">Trending Movies</h2>
          <Slider>
             {trendingMovies
               ? trendingMovies.map((movie, index) => (
                   <div className="home-card" key={movie.id}>
+                    <div className="home-card-layout d-flex flex-column justify-content-evenly align-items-center">
+                      <h4>{`${movie.title}`}</h4>
+                      <MoviesVote vote_average={movie.vote_average}/>
+                    </div>
                     <img
                       src={`${imgPrefix}${movie.poster_path}`}
                       alt=""
-                      className="w-100"
                     />
                   </div>
                 ))
@@ -85,24 +96,32 @@ export default function Home() {
           </Slider>
           </div>
          
-            <div className='my-5'>
-              <h2 className="title-type">Trending  Tv Shows</h2>
+            <div className='slider-parent my-5'>
+              <h2 className="title-type mb-5 slick-title">Trending  Tv Shows</h2>
                 <Slider>
                   {trendingTv ? trendingTv.map((movie) =>
                     <div className="home-card" key={movie.id}>
-                            <img className='w-100' src={`${imgPrefix}${movie.poster_path}`} alt="" />
+                      <div className="home-card-layout d-flex flex-column justify-content-evenly align-items-center">
+                        <h4>{`${movie.title}`}</h4>
+                        <MoviesVote vote_average={movie.vote_average}/>
+                      </div>
+                            <img  src={`${imgPrefix}${movie.poster_path}`} alt="" />
                     </div>
                   ) : ''}
                 </Slider>
             </div> 
           
 
-            <div className='my-5'>
-             <h2 className="title-type">Trending People</h2>
+            <div className=' slider-parent my-5'>
+             <h2 className="title-type mb-5 slick-title">Trending People</h2>
               <Slider>
                {trendingPeople ? trendingPeople.map((movie) =>
                     <div className="home-card" key={movie.id}>
-                        <img className='w-100' src={imgPrefix + movie.profile_path} alt="" />
+                      <div className="home-card-layout d-flex flex-column justify-content-evenly align-items-center">
+                        <h4>{`${movie.name}`}</h4>
+                        <MoviesVote vote_average={movie.popularity/10}/>
+                      </div>
+                        <img src={imgPrefix + movie.profile_path} alt="" />
                     </div>
                 ) : ''}
               </Slider>
@@ -113,8 +132,9 @@ export default function Home() {
         </>
       ) : (
         // without login--------------------------------------------------------
-
+        
         <div className="home-no-login">
+          
           <section className="container-fluid  p-5 sec1">
             <div className="row">
               <div className=" col-md-6 ">

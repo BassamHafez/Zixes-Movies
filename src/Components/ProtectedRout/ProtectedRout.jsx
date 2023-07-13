@@ -10,15 +10,15 @@ export default function ProtectedRout({val}) {
     let {userInfo}=useContext(NavContext)
 
     if(userInfo!==null||localStorage.getItem('UserToken')){
-        if(val==='/Zixes-Movie//Movies'){
+        if(val==='/Movies'){
             return (<Movies/>);
         }
-        else if (val==='/Zixes-Movie//Tv'){
+        else if (val==='/Tv'){
             return (<Tv/>);
         }
     }
     else{
-        return (<Navigate to='/Zixes-Movie//Login'/>);
+        return (<Navigate to='/Login'/>);
     }
 
 }

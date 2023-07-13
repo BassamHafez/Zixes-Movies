@@ -3,24 +3,39 @@ import ParticlesBackground from '../Particels/ParticlesBackground'
 import NavContext from "../../NavContext";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 
 
 export default function Signup() {
 
-  let {changeNavbar,changeFooter,changeParticleColor} = useContext(NavContext)
+  let {changeNavbar,changeFooter,changeParticleColor,loading,preventScroll,changeLoadingState} = useContext(NavContext)
   let[user,setUser]=useState({
     first_name:'',last_name:'',email:'',password:'',age:''
   });
   let[error,setError]=useState('');
-  let[loading,setLoading]=useState(false);
+  let[onload,setOnLoad]=useState(false);
   let[errorList,setErrorList]=useState([]);
   let Navigate=useNavigate();
 
+
+  function setLoad() {
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
+      preventScroll(false);
+      changeLoadingState(false);
+    }
+  }
+
+  
   useEffect(() => {
     changeNavbar(true)
     changeFooter(true)
     changeParticleColor(false);
+    changeLoadingState(true);
+    setLoad();
   },[]);
 
 
@@ -49,29 +64,29 @@ export default function Signup() {
 
   async function hasFormSubmit(e){
     e.preventDefault();
-    setLoading(true)
+    setOnLoad(true)
     let response=validation();
     setError('')
     setErrorList([]);
 
     if(response.error){
-      setLoading(false)
+      setOnLoad(false)
       changeParticleColor(true);
       setErrorList(response.error.details)
     }
     else{
-      let {data}= await axios.post('https://sticky-note-fe.vercel.app/signup',user);
+      let {data}= await axios.post('https://movies-api.routemisr.com/signup',user);
         if(data.message==='success'){
           changeParticleColor(false);
           setError('');
-          setLoading(false)
+          setOnLoad(false)
           Navigate("/Login")
         }
 
         else{
           setError(data.message.slice(data.message.indexOf(',')+1))
           changeParticleColor(true);
-          setLoading(false)
+          setOnLoad(false)
     }
     }
   
@@ -81,6 +96,7 @@ export default function Signup() {
 
   return (
     <>
+  {loading === true ? <LoadingScreen/> : ""}
   <ParticlesBackground/>
   {errorList.length>0||error?
     // error case---------------------------------------------------------
@@ -110,7 +126,7 @@ export default function Signup() {
           <label htmlFor='floatingAge'> Your Age</label>
         </div>
         <div className='w-100 m-auto d-flex justify-content-center'>
-            <button className='submit-button w-50 ' type='submit'>{loading===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Register"}</button>
+            <button className='submit-button w-50 ' type='submit'>{onload===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Register"}</button>
         </div>
     </form>
 
@@ -152,7 +168,7 @@ export default function Signup() {
           <label htmlFor='floatingAge'> Your Age</label>
         </div>
         <div className='w-100 m-auto d-flex justify-content-center'>
-            <button className='submit-button w-50 ' type='submit'>{loading===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Register"}</button>
+            <button className='submit-button w-50 ' type='submit'>{onload===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Register"}</button>
         </div>
     </form>
 

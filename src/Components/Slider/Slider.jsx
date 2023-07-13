@@ -1,20 +1,16 @@
 import Slider from "react-slick";
 import React, {useState,useEffect } from "react";
-export default function SimpleSlider(props) {
- 
-     
-    let [showNumber,setShowNumber]=useState(6);
+
+export default function SimpleSlider(props) {     
+    let [showNumber,setShowNumber]=useState(5);
 
     function handleResize() {
-       if(document.body.clientWidth<800){
-        setShowNumber(3);
-       }
-       else if(document.body.clientWidth<1000){
-        setShowNumber(4);
-       }
 
+       if(document.body.clientWidth<900){
+        setShowNumber(1);
+       }
        else{
-        setShowNumber(6);
+        setShowNumber(3);
        }
     }
    
@@ -27,13 +23,15 @@ export default function SimpleSlider(props) {
     const settings = {
       dots: false,
       infinite: true,
-      speed: 2000,
+      lazyLoad:true,
+      speed: 3000,
       slidesToShow: showNumber,
-      slidesToScroll:showNumber,
+      centerMode:true,
+      centerPadding:0,
       autoplay:true,
       autoplaySpeed:3000,
-      className:'slider-scroll',
-      touchThreshold:20,
+      // className:'slider-scroll',
+      // touchThreshold:20,
     };
     return (
       <Slider {...settings}>

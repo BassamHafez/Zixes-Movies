@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import logo from "../../images/loading_icon.png";
 import NavContext from "../../NavContext";
 import logoDetailes from "../../images/my_logo-removebg-preview.png";
+import MoviesVote from "../MoviesVote/MoviesVote";
 
 
 export default function MovieCard({ movie, fetchSingleMovie }) {
@@ -108,7 +109,7 @@ export default function MovieCard({ movie, fetchSingleMovie }) {
                                 </div>
                               </div>
                             </div>
-                            <div className=" image-contain-details-icons d-flex justify-content-center align-items-center">
+                            <div className=" image-contain-details-icons d-flex justify-content-center align-items-center mb-2">
                               <ul className=" details-icons d-flex justify-content-center align-items-center  p-2">
                                 <li className="mx-4">
                                   <i className="fa-solid fa-heart"></i>
@@ -121,6 +122,7 @@ export default function MovieCard({ movie, fetchSingleMovie }) {
                                 </li>
                               </ul>
                             </div>
+                          <MoviesVote vote_average={selectedMovie.vote_average}/>
                           </div>
                         ) : (
                           <div className="no-details-img-div d-flex justify-content-center align-items-center">
