@@ -31,11 +31,11 @@ export default function Signup() {
 
   
   useEffect(() => {
+    changeLoadingState(true);
+    setLoad();
     changeNavbar(true)
     changeFooter(true)
     changeParticleColor(false);
-    changeLoadingState(true);
-    setLoad();
   },[]);
 
 

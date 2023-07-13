@@ -6,7 +6,7 @@ import MoviesVote from "../MoviesVote/MoviesVote";
 
 
 export default function MovieCard({ movie, fetchSingleMovie }) {
-  let { setSelectedMovie, selectedMovie} = useContext(NavContext);
+  let { setSelectedMovie, selectedMovie,preventScroll} = useContext(NavContext);
   const roundedPopularity = `${Math.ceil(selectedMovie.popularity)}`;
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
   const IMAGE_PATH_DETAILS = "https://image.tmdb.org/t/p/w1280";
@@ -14,6 +14,7 @@ export default function MovieCard({ movie, fetchSingleMovie }) {
 
 
   const goDetails = async () => {
+    preventScroll(true);
     setSelectedMovie(movie);
   };
 
@@ -30,9 +31,11 @@ export default function MovieCard({ movie, fetchSingleMovie }) {
     setSelectedMovie(movie);
   }, []);
 
+
+
   return (
     <>
-      <div className="col-md-3  py-4">
+      <div className="col-sm-6 col-md-3  py-4">
         <div className="card movie-card">
           <div className="card-layer">
             <img
@@ -148,6 +151,7 @@ export default function MovieCard({ movie, fetchSingleMovie }) {
                             className="btn-close mb-4"
                             data-bs-dismiss="modal"
                             aria-label="Close"
+                            onClick={preventScroll(false)}
                           ></button>
                         </div>
                         <h6 className="overview">{selectedMovie.overview}</h6>
@@ -157,7 +161,7 @@ export default function MovieCard({ movie, fetchSingleMovie }) {
                             ? selectedMovie.release_date
                             : selectedMovie.first_air_date}
                         </h6>
-                        <div className="p-5 counter d-flex justify-content-evenly align-items-center">
+                        <div className="py-5 counter d-flex justify-content-evenly align-items-center">
                           <div className="vote p-2  d-flex flex-column justify-content-center align-items-cente">
                             <div className="counter-vote d-flex justify-content-center align-items-center">
                               <h5>{selectedMovie.vote_average}</h5>

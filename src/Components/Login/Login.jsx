@@ -19,6 +19,7 @@ export default function Login() {
 
 
   function setLoad() {
+    
     if (
       document.readyState === "complete" ||
       document.readyState === "interactive"
@@ -26,15 +27,19 @@ export default function Login() {
       preventScroll(false);
       changeLoadingState(false);
     }
+    else{
+      alert("mooo")
+    }
   }
 
 
   useEffect(() => {
+    changeLoadingState(true);
+    setLoad();
     changeNavbar(true);
     changeFooter(true);
     changeParticleColor(false);
-    changeLoadingState(true);
-    setLoad();
+    preventScroll(false);
   }, []);
 
   function getUserData(e) {

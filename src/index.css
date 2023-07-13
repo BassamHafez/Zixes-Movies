@@ -5,7 +5,7 @@
 
 body,html{
     background-color:rgb(10, 10, 12);
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
     overflow-x: hidden !important;
 }
 *{
@@ -37,7 +37,7 @@ button{
     background: transparent;
 }
 ::-webkit-scrollbar-thumb{
-    background: #DC3545;
+    background: #6d050f;
     border-radius: 2px;
 }
 /* 
@@ -132,11 +132,11 @@ controls
 }
 
 .sorting-button button i{
-    color:#DC3545;
+    color:#6d050f;
     font-size: 1.25rem;
 }
 .sorting-button button{ 
-    color:#DC3545;
+    color:#6d050f;
     font-size: 1.25rem;
     text-align: center;
 }
@@ -167,7 +167,7 @@ controls
     transition: all .2s;
 }
 .sorting-offcanvas ul li .fa-solid{
-    color: #DC3545;
+    color: rgb(161, 2, 2);
     transition: all .2s;
 }
 .sorting-offcanvas ul li:hover{
@@ -181,7 +181,7 @@ controls
 }
 .title-type{
     font-weight: 500;
-    color:#DC3545;
+    color:#c41224;
 }
 
 /* 
@@ -205,10 +205,44 @@ Home
     width: 100% !important;
     height: 100% !important;
 }
+
 .header{
     background-image: url('./images/carousel bg 2.webp');
     background-size: cover;
     min-height: 100vh;
+}
+
+.carousel-inner{
+    position: relative;
+}
+
+.home-caption-caros{
+    font-weight: 900;
+    position: absolute;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: fit-content;
+    text-align: center;
+}
+.home-caption-caros h2{
+    font-weight: 800;
+    margin-bottom:10px;
+}
+.home-caption-caros h5{
+    font-weight: 700;
+    margin-bottom:20px;
+}
+.home-caption-caros button{
+    padding: 10px 20px;
+    background-color: #6d050f;
+    border-radius:10px;
+    transition: all .5s;
+}
+.home-caption-caros button:hover{
+    background-color: white;
+    color: #6d050f;
 }
 .slider-parent{
     height: 120vh !important;
@@ -305,12 +339,13 @@ Home
 }
 
 .sec1-title{
-    color: #DC3545;
+    color: #c41224;
     font-size: 3rem;
     font-weight: 900;
 }
 .special-color{
-    color: #DDDDDD;
+    color: rgb(160, 156, 156);
+    font-size: 20px
 }
 .download-img{
     width: 12.5rem;
@@ -323,10 +358,10 @@ Home
 }
 .sec3 h2{
     font-weight: 900 !important;
-    color: #DC3545;
+    color: #c41224;
 }
 .sec3-h3{
-    color: rgb(70, 63, 63);
+    color: rgb(160, 156, 156);
 }   
 
 
@@ -341,6 +376,49 @@ Home
     color: white;
 }
 .incre-and-dec-span{
+    color: rgb(136, 131, 131);
+}
+
+.subscibe-item{
+ background-color:#1b1c1d;  
+ padding: 30px;
+ border-radius: 10px;
+ box-shadow: 0 0 10px #DC3545;
+ border: 2px solid #c41224;
+ text-align: center;
+ justify-content: space-between !important;
+}
+.subscibe-item p{
+    color:rgb(136, 131, 131);
+}
+.subscibe-item h2{
+    border: 1px solid rgb(136, 131, 131);
+    border-radius: 10px;
+    padding: 5px 0;
+}
+.subscibe-item button{
+    padding: 10px 20px;
+    background-color: #6d050f;
+    border-radius:10px;
+    transition: all .5s;
+    width: 100%;
+}
+.subscibe-item button:hover{
+    background-color: white;
+    color: #6d050f;
+}
+.subscibe-item h5{
+    color: #c41224;
+}
+.price-div{
+    border: 3px solid transparent;
+    border-left:3px solid #c41224;
+    text-align: start;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.price-div del{
+    font-size: 12px;
     color: rgb(136, 131, 131);
 }
 /* 
@@ -363,7 +441,7 @@ footer{
     align-items:start;
 }
 footer h5{
-    color: #DC3545;
+    color: rgba(199, 5, 5,.8);
     font-weight: 900 !important;
     font-family:Arial, Helvetica, sans-serif;
     border: 0.0625rem solid transparent;
@@ -619,7 +697,7 @@ movie card
     transition: all .3s;
 }
 .trailer-card:hover .trial-icon{
-    color: #DC3545;
+    color: #6d050f;
 }
 
 .details-card{
@@ -630,20 +708,23 @@ movie card
 
 .show-details-button{
     width:80%;
-    background-color:#2C2C2C;
+    background-color:#6d050fa9;
     padding: 0.3125rem;
     border-radius: 0.3125rem;
     transition: all .3s;
     border:none;
+    font-weight: 600;
 }
 .fa-plus{
     transition: all .3s;
 }
 .show-details-button:hover  .fa-plus{
-    color:#1A1A1A;
+    color:#6d050f
 }
 .show-details-button:hover{
-    background-color:#DC3545;
+    background-color:white;
+    color: #6d050f;
+    font-weight: 700;
 }
 .show-trailer-button{
     background-color: transparent;
@@ -652,14 +733,17 @@ movie card
     padding: 0.3125rem;
     transition: all .3s;
     width: 80%;
+    font-weight: 600;
 }
 .show-trailer-button:hover{
-    background-color:#2C2C2C;
+    background-color:white;
+    color: #6d050f;
+    font-weight: 700;
 }
 
 
 .movie-rate{
-    background-color: #1A1A1A;
+    background-color: #6d050f;
     width: 2.5rem;
     height:3.75rem;
     display: flex;
@@ -722,10 +806,9 @@ movie-details
     width:6.25rem;
     height: 3.75rem;
     border: 0.0625rem solid transparent;
-    border-bottom: 0.0625rem solid #7c7b7b;
-    
-    
+    border-bottom: 0.0625rem solid #7c7b7b;    
 }
+
 .vote{
     box-shadow: -0.3125rem 0.3125rem 0.3125rem black;
     cursor:grab;
@@ -737,7 +820,8 @@ movie-details
 }
 
 .counter span{
-    color: #918e8e; 
+    color: #DC3545;
+    font-weight: 600;
 }
 .movie-details-title{
     background-color: #121213;
@@ -843,6 +927,11 @@ table tr:hover{
 .profile:hover{
     background-color: #dc354662;
 }
+.sorting-offcanvas ul li,.sorting-button button{
+    background-color: transparent;
+    border: none;
+}
+
 /* 
 _________________________________________________
 error page
@@ -858,22 +947,12 @@ error page
     background-color: black;
 }
 
-/* 
-_________________________________________________
-error page
-
-*/
 .movie-header{
-    background-image: url('./images/carousel bg 3.jpg');
+    background-image: url('./images/tv-cover.jpg');
     background-size: cover;
     min-height: 100vh;
 }
 
-/* 
-_________________________________________________
-error page
-
-*/
 .error-title{
     color: #DC3545;
     font-weight: 900;
@@ -948,7 +1027,17 @@ form{
     padding: 0 !important;
 }
 footer h5{
-    margin-bottom:10px;
+    margin-bottom:20px;
+}
+.footer-logo-div{
+    text-align:center;
+    padding: 10px;
+}
+.footer-icons{
+    margin-bottom:10px  ;
+}
+.Movie-details-card{
+    margin-top:20px;
 }
 
 }

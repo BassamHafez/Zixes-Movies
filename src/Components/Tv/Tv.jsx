@@ -149,19 +149,19 @@ export default function Tv() {
       </Helmet>
         {loading===true?<LoadingScreen/>:''}
            <header>
-        <div className='movie-header text-center'>
-        <div className="home-footer">
-            <img src={logo} alt="logo" />
-            <h1>Unlimited movies, TV shows, and more</h1>
-            <h3>Watch anywhere. Cancel anytime.</h3>
-            <form onSubmit={searchMovie} className="mt-5 px-5 search-form">
-                <div className=" input-group ">
-                  <input onChange={(e)=>setSearchKey(e.target.value)}  type="text" className='form-control' name='search' placeholder="Search Movie" aria-describedby="button-addon" />
-                  <button type="submit" className="submit-button" id="button-addon" >search</button>
-              </div>              
-            </form>
-          </div>
-        </div>
+              <div className='movie-header text-center'>
+              <div className="home-footer">
+                  <img src={logo} alt="logo" />
+                  <h1>Unlimited movies, TV shows, and more</h1>
+                  <h3>Watch anywhere. Cancel anytime.</h3>
+                  <form onSubmit={searchMovie} className="mt-5 px-5 search-form">
+                      <div className=" input-group ">
+                        <input onChange={(e)=>setSearchKey(e.target.value)}  type="text" className='form-control' name='search' placeholder="Search Movie" aria-describedby="button-addon" />
+                        <button type="submit" className="submit-button" id="button-addon" >search</button>
+                    </div>              
+                  </form>
+                </div>
+              </div>
            </header>
           <div className="container">
 
