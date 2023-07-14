@@ -8,7 +8,7 @@ export default function OffcanvasSlide() {
     let Navigate=useNavigate();
 
     function navigateToHome(){
-      Navigate('/Home');
+      Navigate('/Zixes-Movie/');
       logOut();
     }
     

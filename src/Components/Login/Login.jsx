@@ -34,10 +34,10 @@ export default function Login() {
 
 
   useEffect(() => {
-    changeLoadingState(true);
-    setLoad();
     changeNavbar(true);
     changeFooter(true);
+    changeLoadingState(true);
+    setLoad();
     changeParticleColor(false);
     preventScroll(false);
   }, []);

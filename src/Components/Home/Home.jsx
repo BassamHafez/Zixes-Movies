@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import imgsec1 from "../../images/Game of Thrones - Season I.jpeg";
 import googleplay from "../../images/google_en.png";
 import store from "../../images/store_en.png";
@@ -7,11 +9,7 @@ import kids from "../../images/Home-kids.png";
 import sec3 from "../../images/sec3 img.webp";
 import cov1 from "../../images/cov1.jpeg";
 import cov2 from "../../images/cov2.jpeg";
-import cov3 from "../../images/cov3.jpeg";
-import cov4 from "../../images/cov4.jpeg";
 import cov5 from "../../images/cov5.jpeg";
-import cov6 from "../../images/cov6.jpeg";
-
 import NavContext from "../../NavContext";
 import OffcanvasSlide from "./../OffcanvasSlide/OffcanvasSlide";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
@@ -62,6 +60,13 @@ export default function Home() {
     console.log(trendingPeople)
   }, [userInfo]);
   
+  useEffect(() => {
+   AOS.init({duration:2000})
+  }, []);
+  
+
+
+
   return (
     <>
       <Helmet>
@@ -116,8 +121,8 @@ export default function Home() {
               </button>
             </div>
 
-            <div className=" slider-parent my-5">
-          <h2 className="title-type mb-5 slick-title">Trending Movies</h2>
+            <div className=" slider-parent my-5" data-aos="zoom-in-up">
+          <h2 className="title-type my-5 slick-title">Trending Movies</h2>
          <Slider>
             {trendingMovies
               ? trendingMovies.map((movie, index) => (
@@ -136,8 +141,8 @@ export default function Home() {
           </Slider>
             </div>
          
-            <div className='slider-parent my-5'>
-              <h2 className="title-type mb-5 slick-title">Trending  Tv Shows</h2>
+            <div className='slider-parent my-5' data-aos="zoom-in-up">
+              <h2 className="title-type mb-5 slick-title" >Trending  Tv Shows</h2>
                 <Slider>
                   {trendingTv ? trendingTv.map((movie) =>
                     <div className="home-card" key={movie.id}>
@@ -150,7 +155,7 @@ export default function Home() {
                   ) : ''}
                 </Slider>
             </div> 
-            <div className=' slider-parent my-5'>
+            <div className=' slider-parent my-5' data-aos="zoom-in-up">
              <h2 className="title-type mb-5 slick-title">Trending People</h2>
               <Slider>
                {trendingPeople ? trendingPeople.map((movie) =>
@@ -183,14 +188,14 @@ export default function Home() {
 
           <div className="home-no-login">
             
-            <section className="container-fluid  p-5 sec1">
+            <section className="container-fluid  p-5 sec1" data-aos="fade-up">
               <div className="row">
-                <div className=" col-md-6 ">
+                <div className=" col-md-6 " data-aos="zoom-in-up">
                   <div>
                     <img className="w-100" src={imgsec1} alt="game of thrones" />
                   </div>
                 </div>
-                <div className="col-md-6 d-flex align-items-center flex-column justify-content-center">
+                <div className="col-md-6 d-flex align-items-center flex-column justify-content-center" data-aos="zoom-in-up">
                   <div className="text-center">
                     <h2 className="sec1-title mb-5">Watch everywhere.</h2>
                     <h3 className="special-color">
@@ -220,11 +225,11 @@ export default function Home() {
                 </div>
               </div>
             </section>
-
-            <section className="sec2 mt-5 px-5">
+  
+            <section className="sec2 mt-5 px-5" data-aos="fade-up">
               <div className="container-fluid">
                 <div className="row sec2-row align-items-center justify-content-center">
-                  <div className="  col-md-6 d-flex align-items-center flex-column justify-content-center">
+                  <div className="  col-md-6 d-flex align-items-center flex-column justify-content-center" data-aos="zoom-in-up">
                     <div className="text-center">
                       <h2 className="sec1-title mb-3">
                         Create profiles for kids
@@ -235,7 +240,7 @@ export default function Home() {
                       </h3>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6" data-aos="zoom-in-up">
                     <div>
                       <img className="w-100" src={kids} alt="Kidsphoto" />
                     </div>
@@ -244,20 +249,20 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="sec3 pt-5">
-              <div className="text-center">
+            <section className="sec3 mt-5 pt-5" data-aos="fade-up">
+              <div className="text-center" data-aos="flip-left">
                 <h2 className="sec1-title">Watch the way you want</h2>
                 <h3 className="special-color">
                   Discover the world's greatest stories,all in one place.
                 </h3>
               </div>
-              <div className="m-auto w-75">
+              <div className="m-auto w-75" data-aos="zoom-in-up">
                 <img className="w-100" src={sec3} alt="watch the way you want" />
               </div>
             </section>
 
-            <section className="subscribe mt-5 p-5">
-            <div className="text-center pb-5">
+            <section className="subscribe mt-5 p-5" data-aos="fade-up">
+            <div className="text-center pb-5" data-aos="fade-up">
                 <h2 className="sec1-title">Choose your package</h2>
                 <h3 className="special-color">
                     No commitment, cancel anytime
@@ -265,7 +270,7 @@ export default function Home() {
               </div>
               <div className="container-fluid py-5 mb-5">
                 <div className="row">
-                  <div className="col-md-4 subscibe-item">
+                  <div className="col-md-4 subscibe-item" data-aos="zoom-in-up">
                       <h2>VIP Mobile</h2>
                       <p>VIP entertainment with select parks</p>
                       <div className="price-div">
@@ -274,7 +279,7 @@ export default function Home() {
                       </div>
                       <button>Subscribe</button>
                   </div>
-                  <div className="col-md-4 subscibe-item">
+                  <div className="col-md-4 subscibe-item" data-aos="zoom-in-up">
                       <h2>VIP</h2>
                       <p>watch originals, exclusive series, movie premieres</p>
                       <div className="price-div">
@@ -283,7 +288,7 @@ export default function Home() {
                       </div>
                       <button>Subscribe</button>
                   </div>
-                  <div className="col-md-4 subscibe-item">
+                  <div className="col-md-4 subscibe-item" data-aos="zoom-in-up">
                       <h2>VIP Mobile</h2>
                       <p>VIP entertainment with select parks</p>
                       <div className="price-div">

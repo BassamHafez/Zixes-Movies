@@ -267,7 +267,9 @@ function selectingType(e){
           </div>
 
          <h2 className="title-type">{selectType?selectType:"Discover"}</h2>       
-        <div className="row my-3">{displayMovies()}</div>
+          <div className="row my-3">
+            {displayMovies()}
+          </div>
 
         <div aria-label="Page navigation example choosing-page">
           <ul className="pagination mb-5  justify-content-center">
