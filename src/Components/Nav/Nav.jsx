@@ -9,7 +9,7 @@ export default function Nav() {
   let Navigate=useNavigate();
 
   function navigateToHome(){
-    Navigate('/Zixes-Movie/');
+    Navigate('/home');
     logOut();
   }
 
@@ -17,7 +17,7 @@ export default function Nav() {
     <>
         <nav className={changeNav===true?'fixed-top navbarr navbar navbar-expand-lg bg-body-tertiary navbar-dark':'navbarr navbar navbar-expand-lg bg-body-tertiary navbar-dark'}>
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/Zixes-Movie/"><img className='logo' src={logo} alt="logo" /></NavLink>
+          <NavLink className="navbar-brand" to="/home"><img className='logo' src={logo} alt="logo" /></NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -27,7 +27,7 @@ export default function Nav() {
           // log in done---------------------------------------------------------------
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">  
               <li className="nav-item px-3">
-                <NavLink className="nav-link active" aria-current="page" to="/Zixes-Movie/">Home</NavLink>
+                <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
               </li>
               <li className="nav-item px-3">
                 <NavLink  className="nav-link " aria-current="page" to="/Movies">Movies</NavLink>

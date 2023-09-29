@@ -27,17 +27,14 @@ export default function Login() {
       preventScroll(false);
       changeLoadingState(false);
     }
-    else{
-      alert("mooo")
-    }
   }
 
 
   useEffect(() => {
+    changeLoadingState(true);
+     setLoad();
     changeNavbar(true);
     changeFooter(true);
-    changeLoadingState(true);
-    setLoad();
     changeParticleColor(false);
     preventScroll(false);
   }, []);
@@ -82,7 +79,7 @@ export default function Login() {
         setError("");
         setOnLoad(false);
         localStorage.setItem('UserToken',data.token);
-        Navigate("/Zixes-Movie/");
+        Navigate("/home");
       } else {
         setError(data.message.slice(data.message.indexOf(",") + 1));
         changeParticleColor(true);

@@ -23,8 +23,10 @@ export default function Movies() {
   let [searchKey, setSearchKey] = useState("");
   let [officialTrailer, setofficialTrailer] = useState("");
   let [currentPage, setCurrentPage] = useState(1);
-  let[toggleCanvas,setToggleCanvas]=useState(true);
-  let[selectType,setSelectType]=useState("");
+  let [toggleCanvas,setToggleCanvas]=useState(true);
+  let [selectType,setSelectType]=useState("");
+  let [videoLoading,setVideoLoading]=useState(true);
+
 
   async function getMovies(searchkey) {
     preventScroll(true);
@@ -106,7 +108,7 @@ function selectingType(e){
   }
 
   function clearOfficialTrailer() {
-    setofficialTrailer("");
+    setVideoLoading(true)
   }
 
   function changeCurrentPage(number) {
@@ -129,6 +131,11 @@ function selectingType(e){
     setToggleCanvas(current=>!current)
   }
 
+  function trailerLoadingHandler(){
+    setVideoLoading(false)
+  }
+ 
+
 
   useEffect(() => {
     changeNavbar(true);
@@ -147,6 +154,7 @@ function selectingType(e){
   useEffect(() => {
     getTypesOfMovies();
     }, [selectType]);
+    
 
   return (
     <>
@@ -352,22 +360,33 @@ function selectingType(e){
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
+
         >
           <div className="modal-dialog modal-fullscreen">
             <div className="modal-content">
               <div className="modal-body p-5 d-flex align-items-center justify-content-center modal-trailer-body">
+               
+               {videoLoading&&
+               <div className="trailer-layout d-flex justify-content-center align-items-center">
+               <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+                </div>}
+              
                 <iframe
-                  title="trailer"
-                  src={`https://www.youtube.com/embed/${officialTrailer}`}
-                  className="ifram-trailer"
-                ></iframe>
-                <button
-                  onClick={clearOfficialTrailer}
-                  type="button"
-                  className="btn-close btn-trailer"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+                  onLoad={trailerLoadingHandler}
+                    title="trailer"
+                    src={`https://www.youtube.com/embed/${officialTrailer}`}
+                    className="ifram-trailer"
+                  ></iframe>
+                  <button
+                    onClick={clearOfficialTrailer}
+                    type="button"
+                    className="btn-close btn-trailer"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+              
               </div>
             </div>
           </div>

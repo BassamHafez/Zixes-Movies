@@ -588,10 +588,27 @@ form{
 }
 
 .ifram-trailer{
-    width:70%;
+    width:80%;
     height:80%;
+    border: 1px solid #0582ff;
 }
-
+.modal-trailer-body{
+    position: relative;
+}
+.trailer-layout{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    z-index: 4;
+}
+.spinner-border{
+    font-size: 1.875rem;
+    width: 70px;
+    height: 70px;
+}
 .btn-trailer{
     position: absolute;
     top: 15%;
@@ -880,19 +897,22 @@ movie-details
     border-top:1px solid transparent ;
     border-right:1px solid transparent ;
 }
+
+
+
 /* 
 _________________________________________________
 offcanvas
 */
 .offcanvas{
-    background-color: #242526;
-    border: snow;
+    background-color: rgba(0, 0, 0, .8);
+    border: none;
     height: fit-content;
     border-radius: 0.625rem;
     padding: 0.625rem;
 }
 .offcanvas-header{
-    background-color: #121213;
+    background-color: #58abffe0;
     border-radius: 0.625rem;
     box-shadow: 0.3125rem 0.3125rem 0.3125rem 0.125rem black;
 }
@@ -914,7 +934,7 @@ table tr{
     border-radius: 0.625rem;
 }
 table tr:hover{
-    background-color: #5e5e5e;
+    background-color: #181616;
     cursor: pointer;
 }
 
@@ -977,12 +997,13 @@ media query
 */
 
 @media screen and (max-width:768px){
+
 body,html{
     font-size: 12px;
     overflow-x: hidden;
 }
 h1{
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 form{
     width:80%
@@ -1002,7 +1023,7 @@ form{
 .form-floating{
     padding:0 !important;
     margin: 0 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 1.25rem !important;
 }
 .login-layer,.signup-layer{
     padding:0 !important;
@@ -1011,15 +1032,15 @@ form{
     justify-content: center !important;
     align-items:center !important;
     margin-top: 50% !important;
-    padding-top: 20px !important;
+    padding-top: 1.25rem !important;
     display: flex;
     align-items: center;
     height: 50vh;
 }
 .error-card{
-    padding: 5px !important;
-    margin-top: 300px !important;
-    padding-top: 50px !important;
+    padding: 0.3125rem !important;
+    margin-top: 18.75rem !important;
+    padding-top: 3.125rem !important;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -1031,38 +1052,48 @@ form{
 }
 
 .noterror-card{
-    margin-top: 400px !important;
+    margin-top: 25rem !important;
     min-height: 50vh;
 }
 .search-form{
     padding: 0 !important;
 }
 footer h5{
-    margin-bottom:20px;
+    margin-bottom:1.25rem;
 }
 .footer-logo-div{
     text-align:center;
-    padding: 10px;
+    padding: 0.625rem;
 }
 .footer-icons{
-    margin-bottom:10px  ;
+    margin-bottom:0.625rem  ;
 }
 .Movie-details-card{
-    margin-top:20px;
+    margin-top:1.25rem;
+}
+
+.modal-trailer-body{
+    padding: 0 !important;
+    background-color: #0582ff;   
+}
+.ifram-trailer{
+    width: 100%;
+    height: 65vh;
+    margin-top: 1.25rem;
 }
 
 }
 
 @media screen and (max-height:500px){
     .modal-details-body { 
-     padding-top: 50px;
+     padding-top: 3.125rem;
     }
     .details-image-side{
-        margin-top: 50px;
+        margin-top: 3.125rem;
     }
     .details-image img{
-        padding-top: 50px;
-        margin-top: 50px;
+        padding-top: 3.125rem;
+        margin-top: 3.125rem;
     }
     .login-layer,.signup-layer{
         padding:0 !important;
@@ -1071,7 +1102,7 @@ footer h5{
         justify-content: center !important;
         align-items:center !important;
         margin-top: 50% !important;
-        padding-top: 20px !important;
+        padding-top: 1.25rem !important;
         background-image: url("./images/download.jpeg");
         background-size: cover;
         height: 100vh;
@@ -1079,9 +1110,9 @@ footer h5{
         margin: auto;
     }
     .error-card{
-        padding: 5px !important;
-        margin-top: 600px !important;
-        padding-top: 50px !important;
+        padding: 0.3125rem !important;
+        margin-top: 37.5rem !important;
+        padding-top: 3.125rem !important;
         display: flex;
         justify-content: center;
         height: 100vh;
@@ -1089,14 +1120,14 @@ footer h5{
         margin: auto;
     }
     .noterror-card-login{
-        margin-top: 400px !important;
+        margin-top: 25rem !important;
         height: 100vh;
         width: 50%;
         margin: auto;
     }
     
     .noterror-card{
-        margin-top: 600px !important;
+        margin-top: 37.5rem !important;
         height: 80vh;
         width:50%;
         margin: auto;

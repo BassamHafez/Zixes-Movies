@@ -74,6 +74,7 @@ export function NavContextProvider(props) {
             document.body.style.overflow='auto'
         }
     }
+    
     function changeLoadingState(x){
         if(x===true){
             setLoading(true)

@@ -56,8 +56,6 @@ export default function Home() {
 
   useEffect(() => {
     getUserInfo();
-    console.log(trendingMovies)
-    console.log(trendingPeople)
   }, [userInfo]);
   
   useEffect(() => {
@@ -270,32 +268,40 @@ export default function Home() {
               </div>
               <div className="container-fluid py-5 mb-5">
                 <div className="row">
-                  <div className="col-md-4 subscibe-item" data-aos="zoom-in-up">
-                      <h2>VIP Mobile</h2>
+                  <div className="col-md-4" data-aos="zoom-in-up">
+                    <div className="subscibe-item">
+                    <h2>VIP Mobile</h2>
                       <p>VIP entertainment with select parks</p>
                       <div className="price-div">
-                      <h5>Discover features</h5>
+                        <h5>Discover features</h5>
                         <h4>29.99 EGP <del>35 EGP</del></h4>
                       </div>
                       <button>Subscribe</button>
+                    </div>
                   </div>
-                  <div className="col-md-4 subscibe-item" data-aos="zoom-in-up">
-                      <h2>VIP</h2>
-                      <p>watch originals, exclusive series, movie premieres</p>
+                  <div className="col-md-4" data-aos="zoom-in-up">
+                    <div className="subscibe-item">
+                    <h2>VIP</h2>
+                      <p>watch exclusive series, movie premieres</p>
                       <div className="price-div">
                       <h5>Discover features</h5>
                         <h4>79.99 EGP <del>100 EGP</del></h4>
                       </div>
                       <button>Subscribe</button>
+                    </div>         
                   </div>
-                  <div className="col-md-4 subscibe-item" data-aos="zoom-in-up">
-                      <h2>VIP Mobile</h2>
-                      <p>VIP entertainment with select parks</p>
+                  <div className="col-md-4 " data-aos="zoom-in-up">
+                    <div className="subscibe-item">
+
+                    <h2>Crown</h2>
+                      <p>Super VIP entertainment with select parks</p>
                       <div className="price-div">
                       <h5>Discover features</h5>
-                        <h4>119.99 EGP <del>130 EGP</del></h4>
+                        <h4>149.99 EGP <del>160 EGP</del></h4>
                       </div>
                       <button>Subscribe</button>
+                    </div>
+                     
                   </div>
                 </div>
               </div>
