@@ -11,7 +11,7 @@ export default function Signup() {
 
   let {changeNavbar,changeFooter,changeParticleColor,loading,preventScroll,changeLoadingState} = useContext(NavContext)
   let[user,setUser]=useState({
-    first_name:'',last_name:'',email:'',password:'',age:''
+    name:'',email:'',password:'',rePassword:'',phone:''
   });
   let[error,setError]=useState('');
   let[onload,setOnLoad]=useState(false);
@@ -46,21 +46,30 @@ export default function Signup() {
    setUser(myUser);
   }
 
-  function validation(){
-
-  const Joi = require('joi');
-
-    const schema= Joi.object({
-      first_name:Joi.string().min(3).max(10).required(),
-      last_name:Joi.string().min(3).max(10).required(),
-      email:Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
-      password:Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
-      age:Joi.number().min(10).max(90).required()
-
-    })
-    return schema.validate(user,{abortEarly:false});
+  function validation() {
+    const Joi = require('joi');
+  
+    const schema = Joi.object({
+      name: Joi.string().min(3).max(10).required(),
+      email: Joi.string()
+        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+        .required(),
+      password: Joi.string()
+        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+        .required(),
+      rePassword: Joi.string()
+        .valid(Joi.ref('password'))
+        .required()
+        .label('Confirm password')
+        .messages({ 'any.only': '{{#label}} does not match password' }),
+      phone: Joi.string()
+        .pattern(/^01[0125][0-9]{8}$/)
+        .required()
+        .messages({ 'string.pattern.base': 'Phone number must be a valid Egyptian mobile number' }),
+    });
+  
+    return schema.validate(user, { abortEarly: false });
   }
-
 
   async function hasFormSubmit(e){
     e.preventDefault();
@@ -75,7 +84,7 @@ export default function Signup() {
       setErrorList(response.error.details)
     }
     else{
-      let {data}= await axios.post('https://movies-api.routemisr.com/signup',user);
+      let {data}= await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signup',user);
         if(data.message==='success'){
           changeParticleColor(false);
           setError('');
@@ -106,24 +115,25 @@ export default function Signup() {
     
     <form className='col-md-7 p-5 form-error' onSubmit={hasFormSubmit}>
         <div className="form-floating mb-3">
-          <input onChange={getUserData} title='first name' type="text" id='floatingInput' className='form-control' name='first_name' placeholder="Enter your first name" />
-          <label className='label' htmlFor='floatingInput'>first name</label>
+          <input onChange={getUserData} title='Name' type="text" id='floatingInput' className='form-control' name='name' placeholder="Enter your Name" />
+          <label className='label' htmlFor='floatingInput'>Name</label>
         </div>
-        <div className="form-floating mb-3">
-          <input onChange={getUserData} title='last name' type="text" id='floatingInputLast' className='form-control' name='last_name' placeholder="Enter your last name" />
-          <label className='label' htmlFor='floatingInputLast'>last name</label>
-        </div>
+
         <div className="form-floating mb-3">
           <input onChange={getUserData} title='your email' type="email" id='floatingEmail' className='form-control' name='email' placeholder="Enter your email" />
-          <label htmlFor='floatingEmail'>Email address</label>
+          <label htmlFor='floatingEmail'>Email</label>
         </div>
         <div className="form-floating mb-3">
           <input onChange={getUserData} title='your password' type="password" id='floatingPass' className='form-control' name='password' placeholder="Enter your password" />
           <label htmlFor='floatingPass'>Password</label>
         </div>
         <div className="form-floating mb-3">
-          <input onChange={getUserData} title='your age' type="age" id='floatingAge' className='form-control' name='age' placeholder="Enter your first Age" />
-          <label htmlFor='floatingAge'> Your Age</label>
+          <input onChange={getUserData} title='Confirm Password' type="password" id='floatingConfirmPass' className='form-control' name='rePassword' placeholder="Confirm Password" />
+          <label htmlFor='floatingConfirmPass'>Confirm Password</label>
+        </div>
+        <div className="form-floating mb-3">
+          <input onChange={getUserData} title='Phone' type="tel" id='floatingPhone' className='form-control' name='phone' placeholder="Enter your Phone" />
+          <label htmlFor='floatingPhone'>Phone</label>
         </div>
         <div className='w-100 m-auto d-flex justify-content-center'>
             <button className='submit-button w-50 ' type='submit'>{onload===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Register"}</button>
@@ -148,12 +158,8 @@ export default function Signup() {
     
     <form className='col-md-7 p-5' onSubmit={hasFormSubmit}>
         <div className="form-floating mb-3">
-          <input onChange={getUserData} title='first name' type="text" id='floatingInput' className='form-control' name='first_name' placeholder="Enter your first name" />
-          <label className='label' htmlFor='floatingInput'>first name</label>
-        </div>
-        <div className="form-floating mb-3">
-          <input onChange={getUserData} title='last name' type="text" id='floatingInputLast' className='form-control' name='last_name' placeholder="Enter your last name" />
-          <label className='label' htmlFor='floatingInputLast'>last name</label>
+          <input onChange={getUserData} title='Name' type="text" id='floatingInput' className='form-control' name='name' placeholder="Enter your name" />
+          <label className='label' htmlFor='floatingInput'>Name</label>
         </div>
         <div className="form-floating mb-3">
           <input onChange={getUserData} title='your email' type="email" id='floatingEmail' className='form-control' name='email' placeholder="Enter your email" />
@@ -164,8 +170,12 @@ export default function Signup() {
           <label htmlFor='floatingPass'>Password</label>
         </div>
         <div className="form-floating mb-3">
-          <input onChange={getUserData} title='your age' type="age" id='floatingAge' className='form-control' name='age' placeholder="Enter your first Age" />
-          <label htmlFor='floatingAge'> Your Age</label>
+          <input onChange={getUserData} title='Confirm Password' type="password" id='floatingConfirmPass' className='form-control' name='rePassword' placeholder="Confirm Password" />
+          <label htmlFor='floatingConfirmPass'>Confirm Password</label>
+        </div>
+        <div className="form-floating mb-3">
+          <input onChange={getUserData} title='Phone' type="password" id='floatingPhone' className='form-control' name='phone' placeholder="Phone" />
+          <label htmlFor='floatingPhone'>Phone</label>
         </div>
         <div className='w-100 m-auto d-flex justify-content-center'>
             <button className='submit-button w-50 ' type='submit'>{onload===true?<i className="fa-solid fa-spin fa-yin-yang"></i>:"Register"}</button>

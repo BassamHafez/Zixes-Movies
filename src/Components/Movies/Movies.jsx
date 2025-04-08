@@ -7,7 +7,6 @@ import logo from "../../images/logo.webp";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import { Helmet } from "react-helmet";
 
-
 export default function Movies() {
   let {
     changeNavbar,
@@ -23,11 +22,10 @@ export default function Movies() {
   let [searchKey, setSearchKey] = useState("");
   let [officialTrailer, setofficialTrailer] = useState("");
   let [currentPage, setCurrentPage] = useState(1);
-  let [toggleCanvas,setToggleCanvas]=useState(true);
-  let [selectType,setSelectType]=useState("");
-  let [videoLoading,setVideoLoading]=useState(true);
-
-
+  let [toggleCanvas, setToggleCanvas] = useState(true);
+  let [selectType, setSelectType] = useState("");
+  let [videoLoading, setVideoLoading] = useState(true);
+  const baseUrl=process.env.REACT_APP_MOVIE_URL;
   async function getMovies(searchkey) {
     preventScroll(true);
     changeLoadingState(true);
@@ -35,7 +33,7 @@ export default function Movies() {
     let page = currentPage;
     let {
       data: { results },
-    } = await axios.get(`${process.env.REACT_APP_MOVIE_URL}/${type}/movie`, {
+    } = await axios.get(`${baseUrl}/${type}/movie`, {
       params: {
         api_key: process.env.REACT_APP_Movie_Key,
         query: searchkey,
@@ -47,7 +45,7 @@ export default function Movies() {
     changeLoadingState(false);
   }
 
-  function showTrailerVideo(data){
+  function showTrailerVideo(data) {
     if (data.videos.results.find((vid) => vid.name === "Official Trailer")) {
       setofficialTrailer(
         data.videos.results.find((vid) => vid.name === "Official Trailer").key
@@ -57,11 +55,10 @@ export default function Movies() {
     }
   }
 
-
   async function fetchSingleMovie() {
     if (selectedMovie.id) {
       let { data } = await axios.get(
-        `${process.env.REACT_APP_MOVIE_URL}/movie/${selectedMovie.id}`,
+        `${baseUrl}/movie/${selectedMovie.id}`,
         {
           params: {
             api_key: process.env.REACT_APP_Movie_Key,
@@ -69,37 +66,57 @@ export default function Movies() {
           },
         }
       );
-      showTrailerVideo(data)
+      showTrailerVideo(data);
     }
   }
 
-function selectingType(e){
-  setSelectType(e.target.name)
-}
-
- async function getTypesOfMovies() {
-    preventScroll(true);
-    changeLoadingState(true);
-    let type = selectType?selectType:'discover';
-    let page = currentPage;
-    let {data:{results}} = await axios.get(selectType?`${process.env.REACT_APP_MOVIE_URL}/movie/${type}`:`${process.env.REACT_APP_MOVIE_URL}/${type}/movie`, {
-      params: {
-        api_key: process.env.REACT_APP_Movie_Key,
-        page: page,
-      },
-    });
-    setMovies(results);
-    preventScroll(false);
-    changeLoadingState(false);
+  function selectingType(e) {
+    setSelectType(e.target.name);
   }
 
+  async function getTypesOfMovies() {
+    preventScroll(true);
+    changeLoadingState(true);
+  
+    let type = selectType ? selectType : "discover";
+    let page = currentPage;
+  
+    try {
+      let {
+        data: { results },
+      } = await axios(
+        selectType
+          ? `${baseUrl}/movie/${type}`
+          : `${baseUrl}/${type}/movie`,
+        {
+          headers: {
+            accept: 'application/json',
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZGU0MWUwYWY4OWU1NzY4YTRmZWQ3Y2Q2MWY3NTE0MSIsIm5iZiI6MTY3NjQ4NTc4Ny41MTMsInN1YiI6IjYzZWQyNDliZjkyNTMyMDBjMzAwMmE0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kFaxM3XzKYdljHBiwlcIchbbAQJQQ080526spWy0RCU`
+          },
+          params: {
+            // api_key: process.env.REACT_APP_Movie_Key,
+            page: page,
+          },
+        }
+      );
+      console.log(results)
+      setMovies(results);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    } finally {
+      preventScroll(false);
+      changeLoadingState(false);
+    }
+  }
+  
+
   function displayMovies() {
-    <MovieCard callTrailer={fetchSingleMovie()}/>;
+    <MovieCard callTrailer={fetchSingleMovie()} />;
     return movies.map((movie) => <MovieCard key={movie.id} movie={movie} />);
   }
 
-  function removeContentOfSelectType(){
-    setSelectType('');
+  function removeContentOfSelectType() {
+    setSelectType("");
   }
 
   function searchMovie(e) {
@@ -108,7 +125,7 @@ function selectingType(e){
   }
 
   function clearOfficialTrailer() {
-    setVideoLoading(true)
+    setVideoLoading(true);
   }
 
   function changeCurrentPage(number) {
@@ -127,15 +144,13 @@ function selectingType(e){
     }
   }
 
-  function toggleSortingCanvas(){
-    setToggleCanvas(current=>!current)
+  function toggleSortingCanvas() {
+    setToggleCanvas((current) => !current);
   }
 
-  function trailerLoadingHandler(){
-    setVideoLoading(false)
+  function trailerLoadingHandler() {
+    setVideoLoading(false);
   }
- 
-
 
   useEffect(() => {
     changeNavbar(true);
@@ -144,7 +159,9 @@ function selectingType(e){
   }, []);
 
   useEffect(() => {
-   {selectType?getTypesOfMovies():getMovies()} 
+    {
+      selectType ? getTypesOfMovies() : getMovies();
+    }
   }, [currentPage]);
 
   useEffect(() => {
@@ -153,8 +170,7 @@ function selectingType(e){
 
   useEffect(() => {
     getTypesOfMovies();
-    }, [selectType]);
-    
+  }, [selectType]);
 
   return (
     <>
@@ -197,7 +213,6 @@ function selectingType(e){
 
       <div className="container">
         <div className="controls d-flex justify-content-center align-items-center mt-5">
-
           <div aria-label="Page navigation example choosing-page bg-warning">
             <ul className="pagination justify-content-center">
               <li className="page-item">
@@ -272,12 +287,10 @@ function selectingType(e){
               </li>
             </ul>
           </div>
-          </div>
+        </div>
 
-         <h2 className="title-type">{selectType?selectType:"Discover"}</h2>       
-          <div className="row my-3">
-            {displayMovies()}
-          </div>
+        <h2 className="title-type">{selectType ? selectType : "Discover"}</h2>
+        <div className="row my-3">{displayMovies()}</div>
 
         <div aria-label="Page navigation example choosing-page">
           <ul className="pagination mb-5  justify-content-center">
@@ -360,60 +373,96 @@ function selectingType(e){
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
-
         >
           <div className="modal-dialog modal-fullscreen">
             <div className="modal-content">
               <div className="modal-body p-5 d-flex align-items-center justify-content-center modal-trailer-body">
-               
-               {videoLoading&&
-               <div className="trailer-layout d-flex justify-content-center align-items-center">
-               <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-                </div>}
-              
+                {videoLoading && (
+                  <div className="trailer-layout d-flex justify-content-center align-items-center">
+                    <div className="spinner-border text-primary" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                )}
+
                 <iframe
                   onLoad={trailerLoadingHandler}
-                    title="trailer"
-                    src={`https://www.youtube.com/embed/${officialTrailer}`}
-                    className="ifram-trailer"
-                  ></iframe>
-                  <button
-                    onClick={clearOfficialTrailer}
-                    type="button"
-                    className="btn-close btn-trailer"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-              
+                  title="trailer"
+                  src={`https://www.youtube.com/embed/${officialTrailer}`}
+                  className="ifram-trailer"
+                ></iframe>
+                <button
+                  onClick={clearOfficialTrailer}
+                  type="button"
+                  className="btn-close btn-trailer"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
             </div>
           </div>
         </div>
-        
 
-
-        <div className={toggleCanvas?"sorting-offcanvas-parent d-flex align-items-center sorting-container show-sorting-canvas":"sorting-offcanvas-parent d-flex align-items-center sorting-container"}>
-               
+        <div
+          className={
+            toggleCanvas
+              ? "sorting-offcanvas-parent d-flex align-items-center sorting-container show-sorting-canvas"
+              : "sorting-offcanvas-parent d-flex align-items-center sorting-container"
+          }
+        >
           <div className="sorting-offcanvas my-5">
-              <div className="sorting-offcanvas-layer d-flex align-items-center">
-                <ul className="ul fa-ul">
-                    <li><span className="fa-li"><i className="fa-solid fa-fire"></i></span> <button onClick={removeContentOfSelectType}>Discover </button>  </li>
-                    <li><span className="fa-li"> <i className="fa-solid fa-heart-circle-plus"></i></span><button onClick={selectingType} name="popular">Popular</button> </li>
-                    <li><span className="fa-li"><i className="fa-solid fa-star"></i></span><button onClick={selectingType} name="top_rated">Top Rated </button> </li>
-                    <li><span className="fa-li"><i className="fa-solid fa-circle-play"></i></span><button onClick={selectingType} name="now_playing">Now playing </button> </li>
-                    <li><span className="fa-li"><i className="fa-solid fa-bomb"></i></span><button onClick={selectingType} name="upcoming">Upcoming </button> </li>
-                  </ul>
-                </div>
+            <div className="sorting-offcanvas-layer d-flex align-items-center">
+              <ul className="ul fa-ul">
+                <li>
+                  <span className="fa-li">
+                    <i className="fa-solid fa-fire"></i>
+                  </span>{" "}
+                  <button onClick={removeContentOfSelectType}>Discover </button>{" "}
+                </li>
+                <li>
+                  <span className="fa-li">
+                    {" "}
+                    <i className="fa-solid fa-heart-circle-plus"></i>
+                  </span>
+                  <button onClick={selectingType} name="popular">
+                    Popular
+                  </button>{" "}
+                </li>
+                <li>
+                  <span className="fa-li">
+                    <i className="fa-solid fa-star"></i>
+                  </span>
+                  <button onClick={selectingType} name="top_rated">
+                    Top Rated{" "}
+                  </button>{" "}
+                </li>
+                <li>
+                  <span className="fa-li">
+                    <i className="fa-solid fa-circle-play"></i>
+                  </span>
+                  <button onClick={selectingType} name="now_playing">
+                    Now playing{" "}
+                  </button>{" "}
+                </li>
+                <li>
+                  <span className="fa-li">
+                    <i className="fa-solid fa-bomb"></i>
+                  </span>
+                  <button onClick={selectingType} name="upcoming">
+                    Upcoming{" "}
+                  </button>{" "}
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div className=" sorting-button-div">
-            <div className="sorting-button">    
-              <button onClick={toggleSortingCanvas}><i className="fa fa-gear"></i></button>
-              </div>
-          </div>  
-
+            <div className="sorting-button">
+              <button onClick={toggleSortingCanvas}>
+                <i className="fa fa-gear"></i>
+              </button>
+            </div>
+          </div>
         </div>
         <OffcanvasSlide />
       </div>

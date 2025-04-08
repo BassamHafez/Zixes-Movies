@@ -32,9 +32,6 @@ export default function Home() {
   } = useContext(NavContext);
   let imgPrefix = "https://image.tmdb.org/t/p/w500";
 
-
-
-
   function setLoad() {
     if (
       document.readyState === "complete" ||
@@ -76,7 +73,6 @@ export default function Home() {
       {userInfo !== null ? (
         // with login--------------------------------------------------------
         <>
-
           <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
              
           <div className="carousel-indicators">
@@ -89,7 +85,7 @@ export default function Home() {
                   <div className="carousel-inner-layout"></div>
                   <div className="carousel-item active">
                       <img src={cov2} className="d-block w-100" alt="" />
-                    <div class="carousel-caption home-caption-caros d-none d-md-block">
+                    <div className="carousel-caption home-caption-caros d-none d-md-block">
                       <h2>Zixes-Movie</h2>
                       <h5>Enjoy the best Animation originals, series and movie premieres</h5>
                       <button>Join Now</button>
@@ -97,7 +93,7 @@ export default function Home() {
                   </div>
                   <div className="carousel-item ">
                       <img src={cov1} className="d-block w-100" alt="" />
-                      <div class="carousel-caption home-caption-caros d-none d-md-block">
+                      <div className="carousel-caption home-caption-caros d-none d-md-block">
                       <h2>Zixes-Movie</h2>
                       <h5>Watch the biggest movies and best productions</h5>
                       <button>Join Now</button>
@@ -105,7 +101,7 @@ export default function Home() {
                   </div>
                   <div className="carousel-item">
                       <img src={cov5} className="d-block w-100" alt="" />
-                      <div class="carousel-caption home-caption-caros d-none d-md-block">
+                      <div className="carousel-caption home-caption-caros d-none d-md-block">
                         <h2>Zixes-Movie</h2>
                         <h5>Enjoy watching your favorite content with no additional fees.</h5>
                         <button>Join Now</button>

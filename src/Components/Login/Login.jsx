@@ -72,7 +72,7 @@ export default function Login() {
       setErrorList(response.error.details);
     } else {
 
-      let { data } = await axios.post("https://movies-api.routemisr.com/signin",user);
+      let { data } = await axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin",user);
 
       if (data.message === "success") {
         changeParticleColor(false);
