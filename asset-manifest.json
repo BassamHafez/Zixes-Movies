@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Zixes-Movies/static/css/main.d893f862.css",
-    "main.js": "/Zixes-Movies/static/js/main.247615a4.js",
+    "main.js": "/Zixes-Movies/static/js/main.4719704b.js",
     "static/media/Spiromaniac.gif": "/Zixes-Movies/static/media/Spiromaniac.08410b87cc27ed733878.gif",
     "static/media/sec3 img.webp": "/Zixes-Movies/static/media/sec3 img.3f54ae04a022ad39c612.webp",
     "static/media/fa-solid-900.ttf": "/Zixes-Movies/static/media/fa-solid-900.2877d54f94f30c5d563c.ttf",
@@ -35,10 +35,10 @@
     "static/media/slick.woff": "/Zixes-Movies/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Zixes-Movies/index.html",
     "main.d893f862.css.map": "/Zixes-Movies/static/css/main.d893f862.css.map",
-    "main.247615a4.js.map": "/Zixes-Movies/static/js/main.247615a4.js.map"
+    "main.4719704b.js.map": "/Zixes-Movies/static/js/main.4719704b.js.map"
   },
   "entrypoints": [
     "static/css/main.d893f862.css",
-    "static/js/main.247615a4.js"
+    "static/js/main.4719704b.js"
   ]
 }
