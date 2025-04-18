@@ -1,9 +1,9 @@
-<h3>Tools<h3/>
-<p>React Js, Context, Bootstrap, Css, Html, External Api (Movies), Route Api (Auth)</p>
-  
 <h2>Zixes - React Movie App</h2>
 <p><strong>Personal Project</strong></p>
 <p>Zixes is a responsive and feature-rich movie app built using React.js. It delivers a dynamic user experience by fetching real-time data from a movie API and offering a sleek interface for movie lovers.</p>
+
+<h3>Tools<h3/>
+<p>React Js, Context, Bootstrap, Css, Html, External Api (Movies), Route Api (Auth)</p>
 
 <h3>Key Features</h3>
 <ul>
