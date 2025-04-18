@@ -1,5 +1,5 @@
 <h3>Tools<h3/>
-<p>React Js, Bootstrap, Css, Html, External Api (Movies), Route Api (Auth)</p>
+<p>React Js, Context, Bootstrap, Css, Html, External Api (Movies), Route Api (Auth)</p>
   
 <h2>Zixes - React Movie App</h2>
 <p><strong>Personal Project</strong></p>
